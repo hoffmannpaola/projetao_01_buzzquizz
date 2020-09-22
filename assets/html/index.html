@@ -5,36 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/tela-login.css">
+    <link rel="stylesheet" href="../css/tela-lista-quizzes.css">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="reset.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Roboto:wght@100;300;400;900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>BuzzQuizz da Paola</title>
 </head>
 <body>
+    <section class="tela-login none">
+            <header class="header">
+                    <div class="titulo">
+                         BuzzQuizz
+                    </div> 
+                    <div class="sub-titulo">
+                         O quizz que você quiser
+                    </div>
+                     
+                 </header>
+             
+                 <div class="login">
+                     <div class="email">
+                         <input class="estilo-container-login" type="email" name="container-email" id="" placeholder="E-mail">
+                     </div>
+                     <div class="senha">
+                         <input class="estilo-container-login" type="password" name="container-senha" id="" placeholder="Senha">
+                     </div>
+                     <div class="botao-enviar">
+                         Entrar
+                     </div>
+                 </div>
 
-    <header class="header">
-       <div class="titulo">
-            BuzzQuizz
-       </div> 
-       <div class="sub-titulo">
-            O quizz que você quiser
-       </div>
-        
-    </header>
-
-    <div class="login">
-        <div class="email">
-            <input class="estilo-container-login" type="email" name="container-email" id="" placeholder="E-mail">
-        </div>
-        <div class="senha">
-            <input class="estilo-container-login" type="password" name="container-senha" id="" placeholder="Senha">
-        </div>
-        <div class="botao-enviar">
-            Entrar
-        </div>
-    </div>
-
-
+    </section>
     
+    <section class="tela-lista-quizzes">
+        <header class="header-tela-quizzes">
+            <div class="titulo">
+                BuzzQuizz
+            </div>
+            
+        </header>
+        <main class="main-cards">
+            <div class="card">
+                <div class="novo-quizz">
+                    Novo <br>Quizz
+                </div>
+                <div class="icone">
+                    <ion-icon name="add-circle"></ion-icon>
+                </div>    
+            </div>
+            <div class="card meu-quizz">
+                <div class="titulo-quizz">
+                    O quão 
+                    <br>Potterhead 
+                    <br>você é?
+                </div>
+
+            </div>
+            <div class="card meu-quizz">
+                <div class="titulo-quizz">
+                    O quão 
+                    <br>Potterhead 
+                    <br>você é?
+                </div>
+    
+                </div>
+                <div class="card meu-quizz">
+                    <div class="titulo-quizz">
+                        O quão 
+                        <br>Potterhead 
+                        <br>você é?
+                    </div>
+                </div>
+                <div class="card meu-quizz">
+                    <div class="titulo-quizz">
+                        O quão 
+                        <br>Potterhead 
+                        <br>você é?
+                    </div>
+    
+                </div>
+                <div class="card meu-quizz">
+                    <div class="titulo-quizz">
+                        O quão 
+                        <br>Potterhead 
+                        <br>você é?
+                    </div>
+    
+                </div>
+
+        </main>
+    </section>
+
+
+
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+   
 </body>
 </html>
