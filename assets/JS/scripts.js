@@ -1,9 +1,7 @@
 var idEmail;
 var idSenha;
 var tokenUsuario;
-
-
-
+var tokenDados;
 
 
 function enviarLogin() {
@@ -27,17 +25,31 @@ function loginIncorreto(){
 }
 
 function liberarTelaListaDeQuizzes(resposta) {
-    tokenUsuario = resposta.data[token].value;
-    console.log(tokenUsuario);
+    tokenUsuario = resposta.data.token;
+    //console.log(tokenUsuario);
     var telaLogin = document.querySelector(".tela-login");
     telaLogin.style.display="none";
     var telaListaQuizzes = document.querySelector(".tela-lista-quizzes");
     telaListaQuizzes.style.display="flex";
+
+    pegarListaDeQuizzes();
     
 }
 
+function renderizarQuizzes() {
+    //jogar os quizzes como cards no html
 
-//Envios ao servidor
+}
+
+function renderizarTelaCriarQuizz() {
+    var telaListaQuizzes = document.querySelector(".tela-lista-quizzes");
+    telaListaQuizzes.style.display="none";
+    var telaCriarQuizz = document.querySelector("");
+    telaLogin.style.display="none";
+}
+
+
+//Conversas com o servidor
 
 function enviarLoginProServidor() {
     var dadosLogin = {
@@ -47,4 +59,14 @@ function enviarLoginProServidor() {
 
     var requisicao = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v1/buzzquizz/users', dadosLogin);
     requisicao.then(liberarTelaListaDeQuizzes).catch(loginIncorreto);
+}
+
+function pegarListaDeQuizzes() {
+    tokenDados = {
+        headers : {
+        "User-Token": tokenUsuario }
+       }
+    var requisicao = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v1/buzzquizz/quizzes', tokenDados);
+    requisicao.then(renderizarQuizzes);
+
 }
