@@ -1,0 +1,235 @@
+.tela-criacao-de-quizz {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.header-tela-criacao-de-quizz {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #6C8FB8;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.titulo-tela-criacao-de-quizz {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    padding: 10px;
+    
+
+}
+
+
+.titulo-do-seu-quizz {
+    margin-top: 80px;
+    font-family: 'Roboto', sans-serif;    
+
+}
+
+.titulo-quizz {
+    font-family: 'Roboto', sans-serif;    
+    margin-left: 10px 10px;
+
+}
+
+.estilo-container-titulo-meu-quizz {
+    width: 480px;
+    height: 40px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: 1px solid rgb(187, 185, 185);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    font-size: 17px;
+
+}
+.numero-pergunta{
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    margin: 10px;
+    padding-left: 5px;
+
+}
+
+.container-criar-pergunta {
+    display: flex;
+    flex-direction: column;
+    background-color: #E3F0FF;
+    border-radius: 10px;
+    width: 505px;
+    height: 270px;
+
+}
+
+.estilo-container-pergunta {
+    width: 475px;
+    height: 30px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    font-size: 17px;   
+
+
+}
+
+.container-respostas-imagens {
+    display: flex;
+    height: 250px;
+
+    
+}
+.estilo-respostas-imagens{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+#imagens {
+    margin-right: 5px;
+    margin-left: -10px;
+    
+}
+
+.correta-box{
+    width: 225px;
+    height: 35px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-left: 10px;
+    background-color: #DAFDD9;
+
+
+}
+
+.errada-box {
+    width: 225px;
+    height: 35px;
+    background-color: #FFD9D9;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.icone-add-pergunta{
+    color: #6C8FB8;
+    font-size: 35px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.container-criar-nivel {
+    display: flex;
+    flex-direction: column;
+    background-color: #E3F0FF;
+    border-radius: 10px;
+    width: 505px;
+    height: 270px;
+    margin-top: 20px;
+
+}
+
+.numero-nivel {
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    margin: 10px;
+    padding-left: 5px;
+
+}
+.porcentagem {
+    display: flex;
+}
+
+.estilo-box-nivel-pequeno{
+    width: 225px;
+    height: 35px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    color:grey;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;  
+
+}
+
+.info-nivel{
+    display:flex;
+    flex-direction: column;
+}
+
+.estilo-box-nivel-grande {
+    width: 475px;
+    height: 30px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;  
+
+}
+#descricao-nivel-box {
+    height: 80px;
+}
+
+#maximo-acerto-box {
+    margin-left: 0;
+}
+
+.botao-publicar {
+    width: 500px;
+    height: 20px;
+    background-color: #6C8FB8;
+    color:white;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+
+}

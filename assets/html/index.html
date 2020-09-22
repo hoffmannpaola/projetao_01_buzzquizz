@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/tela-login.css">
     <link rel="stylesheet" href="../css/tela-lista-quizzes.css">
+    <link rel="stylesheet" href="../css/tela-criacao-de-quizz.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="../css/tela-criacao-de-quizz.css"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>BuzzQuizz da Paola</title>
@@ -55,7 +57,7 @@
                 </div>    
             </div>
             <div class="card meu-quizz">
-                <div class="titulo-quizz">
+                <div class="titulo-card-quizz">
                     O quão 
                     <br>Potterhead 
                     <br>você é?
@@ -63,6 +65,100 @@
 
             </div>
         </main>
+    </section>
+
+    <section class="tela-criacao-de-quizz">
+        <header class="header-tela-criacao-de-quizz">
+            <div class="titulo-tela-criacao-de-quizz">
+                BuzzQuizz
+            </div>   
+        </header>
+
+        <div class="titulo-do-seu-quizz">
+            <input type="text" class="estilo-container-titulo-meu-quizz"    name="" id="titulo-do-seu-quizz" placeholder="Digite o título do seu quizz">
+        </div>
+
+        <div class="container-criar-pergunta">
+            <div class="numero-pergunta">
+                Pergunta 1
+            </div>
+            <div class="titulo-quizz">
+                <input type="text" class="estilo-container-pergunta"    name="" id="pergunta-zero" placeholder="Digite a pergunta">
+            </div>
+            <div class="container-respostas-imagens">
+                <div class="estilo-respostas-imagens" id="resposta">
+                    <div class="resposta-correta">
+                        <input type="text" class="correta-box"    name="" id="resposta-correta" placeholder="Digite a resposta correta">
+                    </div>
+                    <div class="resposta-errada">
+                        <input type="text" class="errada-box"   name="" id="resposta-errada-um" placeholder="Digite a resposta errada 1">
+                    </div>
+                    <div class="resposta-errada">
+                        <input type="text" class="errada-box"  name="" id="resposta-errada-dois" placeholder="Digite a resposta errada 2">
+                    </div>
+                    <div class="resposta-errada">
+                        <input type="text" class="errada-box"   name="" id="resposta-errada-tres" placeholder="Digite a resposta errada 3">
+                    </div>
+                </div>
+
+                <div class="estilo-respostas-imagens"   id="imagens">
+                    <div class="imagem-correta">
+                        <input type="text" class="correta-box"  name="" id="imagem-correta-box" placeholder="Link para imagem correta">
+                    </div>
+                    <div class="imagem-errada">
+                        <input type="text" class="errada-box" name="" id="imagem-errada-box" placeholder="Link para imagem errada 1">
+                    </div>
+                    <div class="imagem-errada">
+                        <input type="text" class="errada-box" name="" id="imagem-errada-box" placeholder="Link para imagem errada 2">
+                    </div>
+                    <div class="imagem-errada">
+                        <input type="text" class="errada-box"  name="" id="imagem-errada-box" placeholder="Link para imagem errada 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="icone-add-pergunta" onclick="">
+            <ion-icon name="add-circle"></ion-icon>
+        </div>  
+
+        <div class="container-criar-nivel">
+            <div class="numero-nivel">
+                Nivel 1
+            </div>
+            <div class="porcentagem">
+                <div class="minimo-acerto">
+                    <input type="text" class="estilo-box-nivel-pequeno"    name="" id="minimo-acerto-box" placeholder="% Mínima de Acerto do nível">
+                </div>
+                <div class="maximo-acerto">
+                    <input type="text" class="estilo-box-nivel-pequeno"    name="" id="maximo-acerto-box" placeholder="% Máxima de Acerto do nível">
+                </div>
+            </div>
+            <div class="info-nivel">
+                <div class="titulo-nivel">
+                    <input type="text" class="estilo-box-nivel-grande "    name="" id="titulo-nivel-box" placeholder="Título do nível">
+                </div>
+                <div class="link-imagem-nivel">
+                    <input type="text" class="estilo-box-nivel-grande "    name="" id="imagem-nivel-box" placeholder="Link da imagem do nível">
+                </div>
+                <div class="descricao-nivel">
+                    <input type="text" class="estilo-box-nivel-grande "    name="" id="descricao-nivel-box" placeholder="Descrição do Nível">
+                </div>
+
+            </div>
+            
+
+        </div>
+
+        <div class="icone-add-pergunta" onclick="">
+            <ion-icon name="add-circle"></ion-icon>
+        </div>  
+
+        <div class="botao-publicar" onclick="pegarDadosDoQuizz()">
+            PUBLICAR
+        </div>
+
+
     </section>
 
 
