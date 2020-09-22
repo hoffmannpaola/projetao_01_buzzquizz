@@ -13,7 +13,7 @@
     <title>BuzzQuizz da Paola</title>
 </head>
 <body>
-    <section class="tela-login none">
+    <section class="tela-login">
             <header class="header">
                     <div class="titulo">
                          BuzzQuizz
@@ -26,21 +26,21 @@
              
                  <div class="login">
                      <div class="email">
-                         <input class="estilo-container-login" type="email" name="container-email" id="" placeholder="E-mail">
+                         <input class="estilo-container-login" type="email" name="container-email" id="email" placeholder="E-mail">
                      </div>
                      <div class="senha">
-                         <input class="estilo-container-login" type="password" name="container-senha" id="" placeholder="Senha">
+                         <input class="estilo-container-login" type="password" name="container-senha" id="senha" placeholder="Senha">
                      </div>
-                     <div class="botao-enviar">
-                         Entrar
+                     <div class="botao-enviar" id="botao-enviar-login" onclick="enviarLogin()">
+                        Entrar
                      </div>
                  </div>
 
     </section>
     
     <section class="tela-lista-quizzes">
-        <header class="header-tela-quizzes">
-            <div class="titulo">
+        <header class="header-tela-quizzes none">
+            <div class="titulo-tela-quizzes">
                 BuzzQuizz
             </div>
             
@@ -98,8 +98,10 @@
     </section>
 
 
-
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>  
+    <script src="../JS/scripts.js"></script>
    
 </body>
 </html>

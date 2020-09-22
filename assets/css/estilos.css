@@ -8,3 +8,8 @@ body {
     font-family: 'Merriweather', serif;
     font-family: 'Roboto', sans-serif;
 }
+
+.none {
+    display: none;
+
+}

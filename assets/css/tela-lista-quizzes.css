@@ -1,6 +1,9 @@
+
+
+
 .tela-lista-quizzes {
     width: 100vw;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 
@@ -30,7 +33,7 @@
     left: 0;
 }
 
-.titulo {
+.titulo-tela-quizzes {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-weight: 500;

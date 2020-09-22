@@ -1,7 +1,10 @@
-.none {
-    display: none;
-
+.tela-login {
+    display: flex;
+    flex-direction: column;
 }
+
+
+
 .header {
     margin-top: 100px;
     display: flex;
@@ -16,6 +19,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-weight: 900;
+    color: black;
 }
 
 .sub-titulo {
@@ -65,4 +69,5 @@
     justify-content: center;
     align-items: center;
     font-weight: 300;
+    cursor: pointer;
 }
