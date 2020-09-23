@@ -61,7 +61,7 @@ function renderizarQuizzes(resposta) {
         
         
     }
-
+    window.location.reload();
 }
 
 function renderizarTelaCriarQuizz() {
@@ -75,26 +75,45 @@ function renderizarTelaCriarQuizz() {
 function pegarDadosDoQuizz() {
     var inputTituloQuizz = document.getElementById("titulo-do-seu-quizz");
     tituloQuizz = inputTituloQuizz.value;
-
+    tituloQuizz = tituloQuizz.substring(0,1).toUpperCase().concat(tituloQuizz.substring(1));
+    tituloQuizz.trim();
 
     var inputPergunta = document.getElementById("pergunta-zero"); 
     pergunta = inputPergunta.value; //Nome da mae do Harry?
+    pergunta = pergunta.substring(0,1).toUpperCase().concat(pergunta.substring(1));
+    pergunta.trim();
+
+
+    if(pergunta.indexOf("?") == pergunta.length+1){
+        pergunta = pergunta;
+        alert("Liberado!")
+    }
+
+
     perguntas.push(pergunta);
 
     var inputRespostaCorreta = document.getElementById("resposta-correta"); 
     respostaCorreta = inputRespostaCorreta.value; //Lili Potter
+    respostaCorreta = respostaCorreta.substring(0,1).toUpperCase().concat(respostaCorreta.substring(1));
+    respostaCorreta.trim();
     respostas.push(respostaCorreta);
 
     var inputErradaUm = document.getElementById("resposta-errada-um"); 
-    respostaErradaUm = inputErradaUm.value;  
+    respostaErradaUm = inputErradaUm.value; 
+    respostaErradaUm = respostaErradaUm.substring(0,1).toUpperCase().concat(respostaErradaUm.substring(1)); 
+    respostaErradaUm.trim();
     respostas.push(respostaErradaUm);
 
     var inputErradaDois = document.getElementById("resposta-errada-dois"); 
-    respostaErradaDois = inputErradaDois.value;  
+    respostaErradaDois = inputErradaDois.value; 
+    respostaErradaDois = respostaErradaDois.substring(0,1).toUpperCase().concat(respostaErradaDois.substring(1));
+    respostaErradaDois.trim();  
     respostas.push(respostaErradaDois);
 
     var inputErradaTres = document.getElementById("resposta-errada-tres"); 
-    respostaErradaTres = inputErradaTres.value;  
+    respostaErradaTres = inputErradaTres.value; 
+    respostaErradaTres = respostaErradaTres.substring(0,1).toUpperCase().concat(respostaErradaTres.substring(1)); 
+    respostaErradaTres.trim();    
     respostas.push(respostaErradaTres);
 
 
@@ -105,10 +124,14 @@ function pegarDadosDoQuizz() {
     //console.log(quizz);
     
     enviarQuizzProServidor();
-    
-    
+
+}
+
+function validarInterrogacao (){
     
 
+
+    
 }
 
 
