@@ -88,7 +88,6 @@
     align-content: center;
     background-color: #E3F0FF;
     border-radius: 10px;
-    width: 95%;
     padding: 10px;
     
     
@@ -115,6 +114,7 @@
 
 .container-respostas-imagens {
     display: flex;
+    flex-wrap: wrap;
     
 
     
@@ -294,6 +294,8 @@
     }
     
     .container-criar-pergunta {
+        display: flex;
+        flex-wrap: wrap;
         width: 90%;
         height: 500px;
         padding-top: 5px;

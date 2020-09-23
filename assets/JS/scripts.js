@@ -1,12 +1,14 @@
 var idEmail;
 var idSenha;
 var tokenUsuario;
-var tokenDados;
+var config;
 var tituloQuizz;
 var pergunta;
 var perguntas = [];
 var respostas = [];
-var quizzDados = [];
+var quizz = [];
+var quizzDados;
+var mainCard = document.querySelector(".main-cards");
 
 
 
@@ -28,7 +30,7 @@ function enviarLogin() {
 
 function loginIncorreto(){
     alert("Login ou Senha incorreto!");
-    window.location.reload();
+    //window.location.reload();
 }
 
 function liberarTelaListaDeQuizzes(resposta) {
@@ -43,8 +45,22 @@ function liberarTelaListaDeQuizzes(resposta) {
     
 }
 
-function renderizarQuizzes() {
-    //jogar os quizzes como cards no html
+ 
+function renderizarQuizzes(resposta) {
+    var meusQuizzes = resposta.data;
+    console.log(meusQuizzes);
+    for (var i = 0; i <= meusQuizzes.length; i++) {
+        var divContainerCard = document.createElement("div"); 
+        divContainerCard.setAttribute("class", "card meu-quizz");
+        divContainerCard.setAttribute("onclick", "abrirMeuQuizz()");
+        var divTituloCard = document.createElement("div"); 
+        divTituloCard.setAttribute("class", "titulo-card-quizz");
+        divTituloCard.innerHTML = meusQuizzes[i].title;
+        divContainerCard.appendChild(divTituloCard);
+        mainCard.appendChild(divContainerCard);
+        
+        
+    }
 
 }
 
@@ -53,6 +69,7 @@ function renderizarTelaCriarQuizz() {
     telaListaQuizzes.style.display="none";
     var telaCriarQuizz = document.querySelector(".tela-criacao-de-quizz");
     telaCriarQuizz.style.display="flex";
+    
 }
 
 function pegarDadosDoQuizz() {
@@ -82,12 +99,15 @@ function pegarDadosDoQuizz() {
 
 
     
-    quizzDados.push(perguntas);
-    quizzDados.push(respostas);
-    console.log(perguntas);
-    console.log(quizzDados);
+    quizz.push(perguntas);
+    quizz.push(respostas);
+    //console.log(perguntas);
+    //console.log(quizz);
     
     enviarQuizzProServidor();
+    
+    
+    
 
 }
 
@@ -105,22 +125,29 @@ function enviarLoginProServidor() {
 }
 
 function pegarListaDeQuizzes() {
-    tokenDados = {
+    config = {
         headers : {
         "User-Token": tokenUsuario }
        }
-    var requisicao = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v1/buzzquizz/quizzes', tokenDados);
+    var requisicao = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v1/buzzquizz/quizzes', config);
     requisicao.then(renderizarQuizzes);
 
 }
 
 function enviarQuizzProServidor() {
-    tokenDados = {
-        headers : {
+
+    config = {
+        headers: {
         "User-Token": tokenUsuario }
        }
 
-    var requisicao = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v1/buzzquizz/quizzes', tokenDados);
-    requisicao.then(renderizarQuizzes);
+    quizzDados = {
+            "title": tituloQuizz,
+	        "data": quizz
+        }
+       
+
+    var requisicao = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v1/buzzquizz/quizzes',  quizzDados, config);
+    requisicao.then(liberarTelaListaDeQuizzes);
 
 }
