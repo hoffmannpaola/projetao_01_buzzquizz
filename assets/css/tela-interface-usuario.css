@@ -1,0 +1,143 @@
+
+/* HEADER */
+
+.tela-interface-usuario {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.header-tela-interface-usuario {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #6C8FB8;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.titulo-tela-interface-usuario {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    padding: 10px;
+    
+}
+
+/* MAIN */
+
+.main-interface-usuario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 80px;
+    padding-bottom: 20px;
+    width: 70%;
+
+}
+
+.titulo-quizz-interface {
+    margin-top: 3%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
+    color: black;
+}
+
+.box-pergunta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+
+}
+.primeira-pergunta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Merriweather', serif;
+    font-size: 30px;
+    color: black;
+    width: 95%;
+    height: 150px;
+    background-color: #6C8FB8; 
+
+}
+
+/* RESPOSTAS */
+
+.box-respostas{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;   
+}
+
+
+
+.resposta {
+    width: 45%;
+    height: 270px;
+    background-color: white;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #505050;
+    border: 1px solid #505050;
+    border-radius: 10px;
+    
+
+}
+
+li > img {
+    width: 100%;
+    height: 70%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+li > span {
+    margin-left: 5%;
+    margin-top: 30%;
+
+}
+
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .titulo-quizz-interface {
+        margin-top: 5%;
+        font-size: 20px;
+        
+    }
+    .main-interface-usuario{
+        width: 90%;
+    }
+    .primeira-pergunta {
+        width: 89%;
+        font-size: 20px;
+
+    }
+    .resposta {
+        width: 90%;
+        
+    }
+    
+    
+
+}

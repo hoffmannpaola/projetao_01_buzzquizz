@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/css/tela-login.css">
     <link rel="stylesheet" href="assets/css/tela-lista-quizzes.css">
     <link rel="stylesheet" href="assets/css/tela-criacao-quizzes.css">
+    <link rel="stylesheet" href="assets/css/tela-interface-usuario.css">
+    <link rel="stylesheet" href="assets/css/tela-fim-quizz.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" media="screen and (max-width: 600px)" href="assets/css/tela-criacao-quizzes.css"/>
     
@@ -24,19 +26,19 @@
                          O quizz que você quiser
                     </div>
                      
-                 </header>
+            </header>
              
-                 <div class="login">
-                     <div class="email">
-                         <input class="estilo-container-login" type="email" name="container-email" id="email" placeholder="E-mail">
-                     </div>
-                     <div class="senha">
-                         <input class="estilo-container-login" type="password" name="container-senha" id="senha" placeholder="Senha">
-                     </div>
-                     <div class="botao-enviar" id="botao-enviar-login" onclick="enviarLogin()">
-                        Entrar
-                     </div>
-                 </div>
+            <div class="login">
+                <div class="email">
+                    <input class="estilo-container-login" type="email" name="container-email" id="email" placeholder="E-mail">
+                </div>
+                <div class="senha">
+                    <input class="estilo-container-login" type="password" name="container-senha" id="senha" placeholder="Senha">
+                </div>
+                <div class="botao-enviar" id="botao-enviar-login" onclick="enviarLogin()">
+                Entrar
+                </div>
+            </div>
 
     </section>
     
@@ -86,10 +88,10 @@
                 </div>   
             </div>
             
-
             <div class="icone-add-pergunta" onclick="adicionarBoxDePergunta()">
                 <ion-icon name="add-circle"></ion-icon>
-            </div>  
+            </div>
+
             <div class="container-total-nivel">
                 <div class="container-nivel">
                     <h2 class="numero-pergunta"> Nivel </h2>
@@ -113,6 +115,52 @@
                 PUBLICAR
             </div>
         </main>
+
+
+    </section>
+
+    <section class="tela-interface-usuario">
+        <header class="header-tela-interface-usuario">
+            <div class="titulo-tela-interface-usuario ">
+                    BuzzQuizz
+            </div>                      
+        </header>
+        <div class="main-interface-usuario">
+            <h1 class="titulo-quizz-interface"> Título do quizz </h1>
+            <div class="box-pergunta">
+                <p class="primeira-pergunta">1. Primeira pergunta?</p>
+            </div>
+            <ul class="box-respostas">
+                <li class="A resposta"><img src="https://bit.ly/32YqWrF" alt="imagem-gato"> <span>Gato</span></li>
+                <li class="B resposta"><img src="https://bit.ly/3mIz0op" alt="imagem-rato"> <span> Rato</span></li>
+            </ul>
+            <ul class="box-respostas">
+                <li class="C resposta"><img src="https://bit.ly/33ZyzgI" alt="imagem-sapo"> <span>Sapo</span></li>
+
+                <li class="D resposta"><img src="https://bit.ly/330eOWY" alt=""> <span>Furão</span> </li>
+            </ul>
+        </div>
+
+
+    </section>
+    <section class="tela-fim-quizz">
+        <header class="header-tela-fim-quizz">
+            <div class="titulo-tela-interface-usuario ">
+                    BuzzQuizz
+            </div>                      
+        </header>
+        <div class="main-tela-fim-quizz">
+            <h1 class="titulo-quizz-tela-fim-quizz"> Título do quizz </h1>
+            <div class="box-titulo-resultado">
+                <p class="titulo-resultado">Você acertou x de x perguntas!<br> Score: xx%</p>
+            </div>
+            <ul class="box-resultado">
+                <li class="descricao-resultado"><span>Você é paraticamente um xxxxxxx!</span> <br><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere ea molestias itaque quaerat ex omnis ullam temporibus delectus repudiandae inventore, enim consequatur eos placeat? Vitae alias error maiores sunt! Sint.</li>
+                <li class="imagem-resultado"><img src="https://bit.ly/364wjHG" alt="Alvo Dumbledore"></li>
+            </ul>
+           
+        </div>
+        
 
 
     </section>
