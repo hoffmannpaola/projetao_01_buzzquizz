@@ -8,7 +8,16 @@ var perguntas = [];
 var respostas = [];
 var quizz = [];
 var quizzDados;
+var qtdPergunta = 1;
+var qtdNivel = 1;
 var mainCard = document.querySelector(".main-cards");
+var numPergunta = document.querySelector(".numero-pergunta");
+var numNivel = document.querySelector(".numero-nivel");
+var mainCriarQuizz = document.querySelector(".main-criar-quizz");
+
+var divParaNovosNiveis = document.querySelector(".criar-novo-nivel");
+var containerCriarPergunta = document.querySelector(".container-criar-pergunta");
+var containerCriarNivel = document.querySelector(".container-criar-nivel");
 
 
 
@@ -67,9 +76,34 @@ function renderizarQuizzes(resposta) {
 function renderizarTelaCriarQuizz() {
     var telaListaQuizzes = document.querySelector(".tela-lista-quizzes");
     telaListaQuizzes.style.display="none";
-    var telaCriarQuizz = document.querySelector(".tela-criacao-de-quizz");
+    var telaCriarQuizz = document.querySelector(".tela-criacao-de-quizz ");
     telaCriarQuizz.style.display="flex";
     
+}
+
+function adicionarBoxDePergunta() {
+    qtdPergunta++
+    var containerTotalPergunta = document.querySelector(".container-total-pergunta");
+    var divPergunta = document.createElement("div");
+    divPergunta.classList.add("container-pergunta");
+    divPergunta.innerHTML='<h2 class="numero-pergunta"> Pergunta ' + qtdPergunta + '</h2>';
+    divPergunta.innerHTML += '<input type="text" id="titulo-questao" name="pergunta"  placeholder="Digite a pergunta">'; 
+    divPergunta.innerHTML += '<ul class="perguntas"><li class="li"><input type="text" class="correta" name="pergunta"  placeholder="Digite a resposta correta"><input type="text" class="correta" name="pergunta" placeholder="Link para imagem correta"></li><li><input type="text" class="errada" name="pergunta"  placeholder="Digite a resposta errada 1"><input type="text" class="errada" name="pergunta" placeholder="Link para imagem errada 1"></li><li><input type="text" class="errada" name="pergunta"  placeholder="Digite a resposta errada 2"><input type="text" class="errada" name="pergunta" placeholder="Link para imagem errada 2"></li><li><input type="text" class="errada" name="pergunta"  placeholder="Digite a resposta errada 3"><input type="text" class="errada" name="pergunta" placeholder="Link para imagem errada 3"></li></ul>'
+ 
+    containerTotalPergunta.appendChild(divPergunta);
+}
+
+
+function adicionarBoxDeNivel() {
+    qtdNivel++
+    var containerTotalNivel = document.querySelector(".container-total-nivel");
+    var divNivel= document.createElement("div");
+    divNivel.classList.add("container-nivel");
+    divNivel.innerHTML='<h2 class="numero-pergunta"> Nível ' + qtdNivel + '</h2>';
+    divNivel.innerHTML +='<ul class="niveis"><li class="li"><input type="text" class="porcentagem" name="minima"  placeholder="% Mínima de Acerto do nível"><input type="text" class="porcentagem" name="maxima"  placeholder="% Máxima de Acerto do nível"></li><li><input type="text" class="titulo-nivel" name="titulo-nivel"  placeholder="Título do nível"></li><li><input type="text" class="imagem-nivel" name="link-img-nivel"  placeholder="Link da imagem do nível"></li><li><input type="text" class="descricao-nivel" name="descricao-nivel"  placeholder="Descrição do nível"></li></ul>';
+
+    containerTotalNivel.appendChild(divNivel);
+ 
 }
 
 function pegarDadosDoQuizz() {
@@ -82,13 +116,6 @@ function pegarDadosDoQuizz() {
     pergunta = inputPergunta.value; //Nome da mae do Harry?
     pergunta = pergunta.substring(0,1).toUpperCase().concat(pergunta.substring(1));
     pergunta.trim();
-
-
-    if(pergunta.indexOf("?") == pergunta.length+1){
-        pergunta = pergunta;
-        alert("Liberado!")
-    }
-
 
     perguntas.push(pergunta);
 

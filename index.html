@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="assets/css/estilos.css">
     <link rel="stylesheet" href="assets/css/tela-login.css">
     <link rel="stylesheet" href="assets/css/tela-lista-quizzes.css">
-    <link rel="stylesheet" href="assets/css/tela-criacao-de-quizz.css">
+    <link rel="stylesheet" href="assets/css/tela-criacao-quizzes.css">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="assets/css/tela-criacao-de-quizz.css"/>
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="assets/css/tela-criacao-quizzes.css"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>BuzzQuizz da Paola</title>
@@ -66,84 +66,46 @@
                 BuzzQuizz
             </div>   
         </header>
+
+
         <main class="main-criar-quizz">
-            <div class="titulo-do-seu-quizz">
-                <input type="text" class="estilo-container-titulo-seu-quizz"    name="" id="titulo-do-seu-quizz" placeholder="Digite o título do seu quizz">
+            
+            <input type="text" id="titulo-quizz" placeholder="Digite o título do seu quizz">
+            <div class="container-total-pergunta">
+                <div class="container-pergunta">
+                        <h2 class="numero-pergunta"> Pergunta </h2>
+                        <input type="text" id="titulo-questao" name="pergunta"  placeholder="Digite a pergunta">
+                        <ul class="perguntas">
+                            <li class="li"><input type="text" class="correta" name="pergunta"  placeholder="Digite a resposta correta"><input type="text" class="correta" name="pergunta" placeholder="Link para imagem correta"></li>
+                            <li><input type="text" class="errada" name="pergunta"  placeholder="Digite a resposta errada 1"><input type="text" class="errada" name="pergunta" placeholder="Link para imagem errada 1"></li>
+                            <li><input type="text" class="errada" name="pergunta"  placeholder="Digite a resposta errada 2"><input type="text" class="errada" name="pergunta" placeholder="Link para imagem errada 2"></li>
+                            <li><input type="text" class="errada" name="pergunta"  placeholder="Digite a resposta errada 3"><input type="text" class="errada" name="pergunta" placeholder="Link para imagem errada 3"></li>
+                            
+                        </ul>
+        
+                </div>   
             </div>
+            
 
-            <div class="container-criar-pergunta">
-                <div class="numero-pergunta">
-                    Pergunta 1
-                </div>
-                <div class="titulo-quizz">
-                    <input type="text" class="estilo-container-pergunta"    name="" id="pergunta-zero" placeholder="Digite a pergunta">
-                </div>
-                <div class="container-respostas-imagens">
-                    <div class="estilo-respostas-imagens" id="resposta">
-                        <div class="resposta-correta">
-                            <input type="text" class="correta-box"    name="" id="resposta-correta" placeholder="Digite a resposta correta">
-                        </div>
-                        <div class="resposta-errada">
-                            <input type="text" class="errada-box"   name="" id="resposta-errada-um" placeholder="Digite a resposta errada 1">
-                        </div>
-                        <div class="resposta-errada">
-                            <input type="text" class="errada-box"  name="" id="resposta-errada-dois" placeholder="Digite a resposta errada 2">
-                        </div>
-                        <div class="resposta-errada">
-                            <input type="text" class="errada-box"   name="" id="resposta-errada-tres" placeholder="Digite a resposta errada 3">
-                        </div>
-                    </div>
-
-                    <div class="estilo-respostas-imagens"   id="imagens">
-                        <div class="imagem-correta">
-                            <input type="text" class="correta-box"  name="" id="imagem-correta-box" placeholder="Link para imagem correta">
-                        </div>
-                        <div class="imagem-errada">
-                            <input type="text" class="errada-box" name="" id="imagem-errada-box" placeholder="Link para imagem errada 1">
-                        </div>
-                        <div class="imagem-errada">
-                            <input type="text" class="errada-box" name="" id="imagem-errada-box" placeholder="Link para imagem errada 2">
-                        </div>
-                        <div class="imagem-errada">
-                            <input type="text" class="errada-box"  name="" id="imagem-errada-box" placeholder="Link para imagem errada 3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="icone-add-pergunta" onclick="">
+            <div class="icone-add-pergunta" onclick="adicionarBoxDePergunta()">
                 <ion-icon name="add-circle"></ion-icon>
             </div>  
-
-            <div class="container-criar-nivel">
-                <div class="numero-nivel">
-                    Nivel 1
+            <div class="container-total-nivel">
+                <div class="container-nivel">
+                    <h2 class="numero-pergunta"> Nivel </h2>
+                    <ul class="niveis">
+                        <li class="li"><input type="text" class="porcentagem" name="minima"  placeholder="% Mínima de Acerto do nível"><input type="text" class="porcentagem" name="maxima"  placeholder="% Máxima de Acerto do nível"></li>
+                        <li><input type="text" class="titulo-nivel" name="titulo-nivel"  placeholder="Título do nível"></li>
+                        <li><input type="text" class="imagem-nivel" name="link-img-nivel"  placeholder="Link da imagem do nível"></li>
+                        <li><input type="text" class="descricao-nivel" name="descricao-nivel"  placeholder="Descrição do nível"></li>
+                    </ul>
+            
                 </div>
-                <div class="porcentagem">
-                    <div class="minimo-acerto">
-                        <input type="text" class="estilo-box-nivel-pequeno"    name="" id="minimo-acerto-box" placeholder="% Mínima de Acerto do nível">
-                    </div>
-                    <div class="maximo-acerto">
-                        <input type="text" class="estilo-box-nivel-pequeno"    name="" id="maximo-acerto-box" placeholder="% Máxima de Acerto do nível">
-                    </div>
-                </div>
-                <div class="info-nivel">
-                    <div class="titulo-nivel">
-                        <input type="text" class="estilo-box-nivel-grande "    name="" id="titulo-nivel-box" placeholder="Título do nível">
-                    </div>
-                    <div class="link-imagem-nivel">
-                        <input type="text" class="estilo-box-nivel-grande "    name="" id="imagem-nivel-box" placeholder="Link da imagem do nível">
-                    </div>
-                    <div class="descricao-nivel">
-                        <input type="text" class="estilo-box-nivel-grande "    name="" id="descricao-nivel-box" placeholder="Descrição do Nível">
-                    </div>
-
-                </div>
-                
 
             </div>
+            
 
-            <div class="icone-add-pergunta" onclick="">
+            <div class="icone-add-pergunta" onclick="adicionarBoxDeNivel()">
                 <ion-icon name="add-circle"></ion-icon>
             </div>  
 
