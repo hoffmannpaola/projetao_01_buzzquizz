@@ -91,7 +91,22 @@ function abrirMeuQuizz(idQuizz){
     for (var i = 0; i < meuQuiz.length; i++) {
         //console.log(meuQuiz[i]);
         if (meuQuiz[i].id === idQuizz) {
+            var telaListaQuizzes = document.querySelector(".tela-lista-quizzes");
+            telaListaQuizzes.style.display="none";
+            var telaInterface = document.querySelector(".tela-interface-usuario ");
+            telaInterface.style.display="flex";
+
             console.log(meuQuiz[i]);
+            var dataQuizz = meuQuiz[i].data;
+            console.log(dataQuizz);
+
+            var divRodadaPergunta = document.createElement("div");
+            divRodadaPergunta.innerHTML = '<h1 class="titulo-quizz-interface">'+ meusQuizzes[i].title + '</h1>';
+            var divBoxPergunta = document.createElement("div");
+            divBoxPergunta.innerHTML = '<p class="primeira-pergunta">1.' + dataQuizz[0] + '</p>'; 
+            
+            
+
 
         }
     }
