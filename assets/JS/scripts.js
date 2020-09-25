@@ -12,6 +12,7 @@ var respostas = [];
 var resposta;
 var nivel = {};
 
+var rodadaPergunta = 0;
 var quizz = {perguntas: [], niveis: []};
 var quizzDados;
 var qtdPergunta = 1;
@@ -24,6 +25,7 @@ var mainCriarQuizz = document.querySelector(".main-criar-quizz");
 var divParaNovosNiveis = document.querySelector(".criar-novo-nivel");
 var containerCriarPergunta = document.querySelector(".container-criar-pergunta");
 var containerCriarNivel = document.querySelector(".container-criar-nivel");
+var containerInterfaceUsuario = document.querySelector(".main-interface-usuario");
 
 
 
@@ -96,14 +98,30 @@ function abrirMeuQuizz(idQuizz){
             var telaInterface = document.querySelector(".tela-interface-usuario ");
             telaInterface.style.display="flex";
 
+            rodadaPergunta++
+
             console.log(meuQuiz[i]);
             var dataQuizz = meuQuiz[i].data;
             console.log(dataQuizz);
+            var quizzPerguntas = dataQuizz.perguntas;
+            
+            
 
             var divRodadaPergunta = document.createElement("div");
+            containerInterfaceUsuario.appendChild(divRodadaPergunta);
+            divRodadaPergunta.classList.add("rodada-de-perguntas");
+            divRodadaPergunta.setAttribute("id", rodadaPergunta);
+            //divRodadaPergunta.setAttribute("class", rodadaPergunta);
             divRodadaPergunta.innerHTML = '<h1 class="titulo-quizz-interface">'+ meusQuizzes[i].title + '</h1>';
+            
+            
             var divBoxPergunta = document.createElement("div");
-            divBoxPergunta.innerHTML = '<p class="primeira-pergunta">1.' + dataQuizz[0] + '</p>'; 
+            divBoxPergunta.innerHTML = '<p class="primeira-pergunta">1.' + Object.values(quizzPerguntas[0]) + '</p>'; 
+            divRodadaPergunta.appendChild(divBoxPergunta);
+            divRodadaPergunta.innerHTML +=  '<ul class="box-respostas"><li class="A resposta" onclick="mostrarResposta(' +rodadaPergunta+ ')"><img src="https://bit.ly/32YqWrF"> <span>' + Object.values(quizzPerguntas[1])+ '</span></li><li class="B resposta" onclick="mostrarResposta(' +rodadaPergunta+ ')"><img src="https://bit.ly/3mIz0op"> <span>'+ dataQuizz.perguntas[2] + '</span></li></ul><ul class="box-respostas"><li class="C resposta" onclick="mostrarResposta(' +rodadaPergunta+ ')"><img src="https://bit.ly/33ZyzgI"> <span>' +dataQuizz.perguntas[3]+ '</span></li><li class="D resposta" onclick="mostrarResposta(' +rodadaPergunta+ ')"><img src="https://bit.ly/330eOWY"> <span>' +dataQuizz.perguntas[4]+ '</span> </li></ul>';
+            //containerInterfaceUsuario.appendChild(divRodadaPergunta);
+
+            
             
             
 
@@ -111,6 +129,16 @@ function abrirMeuQuizz(idQuizz){
         }
     }
     
+}
+
+function mostrarResposta(id) {
+    var divElemento = document.getElementById(id);
+    var liElemento = divElemento.getElementsByTagName("li");
+    console.log(divElemento)
+    console.log(liElemento)
+
+
+
 }
 
 function renderizarTelaCriarQuizz() {
@@ -153,18 +181,17 @@ function pegarDadosDoQuizz() {
     titleQuizz.trim();
     
     var arrayUl = document.querySelectorAll(".perguntas");
-    console.log(arrayUl); //cada bloco de ul criado;
-    console.log(arrayUl.length); //cada bloco de ul criado;
+    //console.log(arrayUl); //cada bloco de ul criado;
+    //console.log(arrayUl.length); //cada bloco de ul criado;
     
     // a cada rodada ele pega bloquinho de input, depois pega o valor do primeiro e coloca em resposta e o segundo em imagem;
-    for (var i = 0; i < arrayUl.length; i++) {
-        var li = arrayUl[i].getElementsByTagName("LI");
+    
+    for (var j = 0; j <= arrayUl.length - 1; j++) {
+        var li = arrayUl[j].getElementsByTagName("LI");
         console.log(li);
-       
         for (var i = 0; i < li.length; i++) {
             console.log(li[i]);
             var opcao = {}
-
             if (i === 0) {
                 opcao.pergunta = li[i].children[0].value;
             } if (i === 1) {
@@ -184,16 +211,12 @@ function pegarDadosDoQuizz() {
                 opcao.imagem4 = li[i].children[1].value;
                 opcao.classe4 = li[i].children[0].className; 
             }  
-            
             quizz.perguntas.push(opcao);
             console.log(opcao);
-
+            console.log(quizz);
         }
-        
+
     }
-    
-    
-    
     var ulNivel = document.querySelector(".niveis");
     var liNivel = ulNivel.getElementsByTagName('input');
         
@@ -212,14 +235,13 @@ function pegarDadosDoQuizz() {
             nivel.descricao = liNivel[i].value;
         }  
         quizz.niveis.push(nivel);  
-        //console.log("Linivel: " + liNivel)    
-           
     }
-    
-    
-    
+
+    enviarQuizzProServidor();
 }
-console.log(quizz);
+
+
+//console.log(quizz);
 
 
 //Conversas com o servidor
@@ -252,7 +274,7 @@ function enviarQuizzProServidor() {
        }
 
     quizzDados = {
-            "title": tituloQuizz,
+            "title": titleQuizz,
 	        "data": quizz
         }
        
