@@ -1,5 +1,5 @@
 .tela-login {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 

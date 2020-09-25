@@ -113,36 +113,43 @@ function pegarDadosDoQuizz() {
     titleQuizz = inputTitleQuizz .value;
     titleQuizz = titleQuizz .substring(0,1).toUpperCase().concat(titleQuizz .substring(1));
     titleQuizz.trim();
-    titleQuizz  = titleQuizz ;
-
-    var inputPergunta = document.getElementById("titulo-questao"); 
-    titulo = inputPergunta.value; //Nome da mae do Harry?
-    titulo = titulo.substring(0,1).toUpperCase().concat(titulo.substring(1));
-    titulo.trim();
-    titulo = titulo;
-    quizz.pergunta.push(titulo);
     
 
     
-    var ul = document.querySelector(".perguntas");
-    var li = ul.getElementsByTagName('li');
     
-    for (var i = 0; i < li.length; i++) {
-        opcao.resposta = li[i].children[0].value;
-        opcao.imagem = li[i].children[1].value;
-        opcao.classe = li[i].children[0].className; 
-       
+    var arrayUl = document.querySelectorAll(".perguntas");
+    
+    //console.log("blocos de ul: " +ul);
+    
+    //a cada rodada ele pega bloquinho de input, depois pega o valor do primeiro e coloca em resposta e o segundo em imagem;
+    for (var i = 0; i < arrayUl.length; i++) {
+        var li = arrayUl[i].getElementsByTagName("LI");
+        for (var i = 0; i < li.length; i++) {
+            var inputPergunta = document.getElementById("titulo-questao"); 
+            titulo = inputPergunta.value; //Nome da mae do Harry?
+            titulo = titulo.substring(0,1).toUpperCase().concat(titulo.substring(1));
+            titulo.trim();
+            quizz.pergunta.push(titulo);
+            //console.log("li de cada rodada: " + li[i].children[0].value);
+            opcao.resposta = li[i].children[0].value;
+            opcao.imagem = li[i].children[1].value;
+            opcao.classe = li[i].children[0].className; 
+            quizz.respostas.push(opcao);
+            //console.log("objeto quizz: " +quizz.respostas);
+            console.log("resultado do push de perguntas " + quizz.respostas)
+
+        }
+        
     }
-    quizz.respostas.push(opcao);
+    
     
     
     var ulNivel = document.querySelector(".niveis");
     var liNivel = ulNivel.getElementsByTagName('input');
-    var qtd = 0;
-   
         
-    for (var i = 0; i <= liNivel.length; i++) {
-        qtd++
+    for (var i = 0; i < liNivel.length; i++) {
+        
+        
         if (i === 0) {
             nivel.minimo = liNivel[i].value;
         } if (i === 1) {
@@ -154,9 +161,11 @@ function pegarDadosDoQuizz() {
         } else if (i === 4) {
             nivel.descricao = liNivel[i].value;
         }  
-            
+        quizz.niveis.push(nivel);  
+        //console.log("Linivel: " + liNivel)    
+           
     }
-    quizz.niveis.push(nivel); 
+    
     
     console.log(quizz);
 }
@@ -189,7 +198,7 @@ function enviarQuizzProServidor() {
 
     config = {
         headers: {
-        "User-Token": tokenUsuario }
+        "User-Token":"5e9dc431-ff0f-45d9-a66f-6181f422ba32" }
        }
 
     quizzDados = {
