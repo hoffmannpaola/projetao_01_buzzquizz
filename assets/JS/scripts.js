@@ -2,17 +2,20 @@ var idEmail;
 var idSenha;
 var tokenUsuario;
 var config;
-
+var meusQuizzes;
+var todosQuizzes;
+var totalQuizz;
+var meuQuiz = [];
 var titleQuizz;
 var titulo;
 var respostas = [];
 var resposta;
-var opcao = {};
 var nivel = {};
 
-var quizz = {pergunta: [], respostas: [], niveis: []};
+var quizz = {perguntas: [], niveis: []};
 var quizzDados;
 var qtdPergunta = 1;
+var qtdBoxPergunta = 1;
 var qtdNivel = 1;
 var mainCard = document.querySelector(".main-cards");
 var numPergunta = document.querySelector(".numero-pergunta");
@@ -58,12 +61,16 @@ function liberarTelaListaDeQuizzes(resposta) {
 
  
 function renderizarQuizzes(resposta) {
-    var meusQuizzes = resposta.data;
-    console.log(meusQuizzes);
-    for (var i = 0; i <= meusQuizzes.length; i++) {
+    meusQuizzes = resposta.data;
+    
+    
+    for (var i = 0; i < meusQuizzes.length; i++) {
+        meuQuiz.push(meusQuizzes[i])
+        
         var divContainerCard = document.createElement("div"); 
         divContainerCard.setAttribute("class", "card meu-quizz");
-        divContainerCard.setAttribute("onclick", "abrirMeuQuizz()");
+        divContainerCard.setAttribute("id", meusQuizzes[i].id);
+        divContainerCard.setAttribute("onclick", "abrirMeuQuizz(" +meusQuizzes[i].id+ ")");
         var divTituloCard = document.createElement("div"); 
         divTituloCard.setAttribute("class", "titulo-card-quizz");
         divTituloCard.innerHTML = meusQuizzes[i].title;
@@ -72,7 +79,23 @@ function renderizarQuizzes(resposta) {
         
         
     }
-    window.location.reload();
+    //console.log(meuQuiz);
+   // window.location.reload();
+}
+console.log(meuQuiz);
+
+//console.log("meuQuiz fora da variavel: " +meuQuiz)
+
+
+function abrirMeuQuizz(idQuizz){
+    for (var i = 0; i < meuQuiz.length; i++) {
+        //console.log(meuQuiz[i]);
+        if (meuQuiz[i].id === idQuizz) {
+            console.log(meuQuiz[i]);
+
+        }
+    }
+    
 }
 
 function renderizarTelaCriarQuizz() {
@@ -85,12 +108,12 @@ function renderizarTelaCriarQuizz() {
 
 function adicionarBoxDePergunta() {
     qtdPergunta++
+    qtdBoxPergunta++
     var containerTotalPergunta = document.querySelector(".container-total-pergunta");
     var divPergunta = document.createElement("div");
     divPergunta.classList.add("container-pergunta");
     divPergunta.innerHTML='<h2 class="numero-pergunta"> Pergunta ' + qtdPergunta + '</h2>';
-    divPergunta.innerHTML += '<input type="text" id="titulo-questao" name="pergunta"  placeholder="Digite a pergunta">'; 
-    divPergunta.innerHTML += '<ul class="perguntas" id="ul-perguntas"><li class="li"><input type="text" class="correta" id="resposta-1"    name="pergunta"  placeholder="Digite a resposta correta"><input type="url" id="link-1" class="correta"   name="pergunta" placeholder="Link para imagem correta"></li><li><input type="text" class="errada" id="resposta-2" name="resposta"  placeholder="Digite a resposta errada 1"><input type="url" id="link-2" id="link-2" class="errada" name="resposta" placeholder="Link para imagem errada 1"></li><li><input type="text" class="errada" id="resposta-3" name="resposta"  placeholder="Digite a resposta errada 2"><input type="url" id="link-3" class="errada" name="resposta" placeholder="Link para imagem errada 2"></li><li><input type="text" class="errada" id="resposta-4" name="resposta"  placeholder="Digite a resposta errada 3"><input type="url" id="link-4" class="errada" name="resposta" placeholder="Link para imagem errada 3"></li></ul>';
+    divPergunta.innerHTML += '<ul class="perguntas" id="ul-perguntas' +qtdBoxPergunta+'"><li><input type="text" id="titulo-questao" name="pergunta"  placeholder="Digite a pergunta"></li><li class="li"><input type="text" class="correta" id="resposta-1"    name="pergunta"  placeholder="Digite a resposta correta"><input type="url" id="link-1" class="correta"   name="pergunta" placeholder="Link para imagem correta"></li><li><input type="text" class="errada" id="resposta-2" name="resposta"  placeholder="Digite a resposta errada 1"><input type="url" id="link-2" id="link-2" class="errada" name="resposta" placeholder="Link para imagem errada 1"></li><li><input type="text" class="errada" id="resposta-3" name="resposta"  placeholder="Digite a resposta errada 2"><input type="url" id="link-3" class="errada" name="resposta" placeholder="Link para imagem errada 2"></li><li><input type="text" class="errada" id="resposta-4" name="resposta"  placeholder="Digite a resposta errada 3"><input type="url" id="link-4" class="errada" name="resposta" placeholder="Link para imagem errada 3"></li></ul>';
  
     containerTotalPergunta.appendChild(divPergunta);
 }
@@ -114,29 +137,41 @@ function pegarDadosDoQuizz() {
     titleQuizz = titleQuizz .substring(0,1).toUpperCase().concat(titleQuizz .substring(1));
     titleQuizz.trim();
     
-
-    
-    
     var arrayUl = document.querySelectorAll(".perguntas");
+    console.log(arrayUl); //cada bloco de ul criado;
+    console.log(arrayUl.length); //cada bloco de ul criado;
     
-    //console.log("blocos de ul: " +ul);
-    
-    //a cada rodada ele pega bloquinho de input, depois pega o valor do primeiro e coloca em resposta e o segundo em imagem;
+    // a cada rodada ele pega bloquinho de input, depois pega o valor do primeiro e coloca em resposta e o segundo em imagem;
     for (var i = 0; i < arrayUl.length; i++) {
         var li = arrayUl[i].getElementsByTagName("LI");
+        console.log(li);
+       
         for (var i = 0; i < li.length; i++) {
-            var inputPergunta = document.getElementById("titulo-questao"); 
-            titulo = inputPergunta.value; //Nome da mae do Harry?
-            titulo = titulo.substring(0,1).toUpperCase().concat(titulo.substring(1));
-            titulo.trim();
-            quizz.pergunta.push(titulo);
-            //console.log("li de cada rodada: " + li[i].children[0].value);
-            opcao.resposta = li[i].children[0].value;
-            opcao.imagem = li[i].children[1].value;
-            opcao.classe = li[i].children[0].className; 
-            quizz.respostas.push(opcao);
-            //console.log("objeto quizz: " +quizz.respostas);
-            console.log("resultado do push de perguntas " + quizz.respostas)
+            console.log(li[i]);
+            var opcao = {}
+
+            if (i === 0) {
+                opcao.pergunta = li[i].children[0].value;
+            } if (i === 1) {
+                opcao.resposta1 = li[i].children[0].value;
+                opcao.imagem1 = li[i].children[1].value;
+                opcao.classe1 = li[i].children[0].className; 
+            } if (i === 2) {
+                opcao.resposta2 = li[i].children[0].value;
+                opcao.imagem2 = li[i].children[1].value;
+                opcao.classe2 = li[i].children[0].className; 
+            } if (i === 3) {
+                opcao.resposta3 = li[i].children[0].value;
+                opcao.imagem3 = li[i].children[1].value;
+                opcao.classe3 = li[i].children[0].className; 
+            } else if (i === 4) {
+                opcao.resposta4 = li[i].children[0].value;
+                opcao.imagem4 = li[i].children[1].value;
+                opcao.classe4 = li[i].children[0].className; 
+            }  
+            
+            quizz.perguntas.push(opcao);
+            console.log(opcao);
 
         }
         
@@ -167,9 +202,9 @@ function pegarDadosDoQuizz() {
     }
     
     
-    console.log(quizz);
+    
 }
-
+console.log(quizz);
 
 
 //Conversas com o servidor
@@ -198,7 +233,7 @@ function enviarQuizzProServidor() {
 
     config = {
         headers: {
-        "User-Token":"5e9dc431-ff0f-45d9-a66f-6181f422ba32" }
+        "User-Token": tokenUsuario}  //"5e9dc431-ff0f-45d9-a66f-6181f422ba32" 
        }
 
     quizzDados = {
